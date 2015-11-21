@@ -17,6 +17,8 @@
 		* 77/100 -> 77/100
 	* Remove google font query
 		* 77/100 -> 84/100
+	* Minify html, inline css:
+		* 84/100 -> 94/100
 
 ### pizza.html
 

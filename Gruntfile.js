@@ -3,6 +3,30 @@ module.exports = function(grunt) {
   var webp = require('imagemin-webp');
 
   grunt.initConfig({
+    htmlmin: {
+      dist: {
+        options: {
+          removeComments: true,
+          collapseWhitespace: true
+        },
+        files: {
+          'index.html': 'index-dev.html'     // 'destination': 'source'
+        }
+      }
+    },
+
+    cssmin: {
+      minify: {
+        files: [{
+          expand: true,
+          cwd: 'css/',
+          src: ['*.css', '!*.min.css'],
+          dest: 'css/',
+          ext: '.min.css'
+        }]
+      }
+    },
+
     webp: {
       files: {
         expand: true,
@@ -28,30 +52,14 @@ module.exports = function(grunt) {
           dest: 'img/'
         }]
       }
-    },
-
-    cssmin: {
-      merge: {
-        files: {
-          'css/merged.css': ['css/style.css',
-                             'css/responsive.css']
-        }
-      },
-      minify: {
-        files: [{
-          expand: true,
-          cwd: 'css/',
-          src: ['*.css', '!*.min.css'],
-          dest: 'css/',
-          ext: '.min.css'
-        }]
-      }
     }
 
   });
 
-grunt.loadNpmTasks('grunt-webp');
+grunt.loadNpmTasks('grunt-contrib-htmlmin');
 grunt.loadNpmTasks('grunt-contrib-cssmin');
+grunt.loadNpmTasks('grunt-webp');
 grunt.loadNpmTasks('grunt-contrib-imagemin');
+
 
 };
