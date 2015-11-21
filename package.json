@@ -1,0 +1,18 @@
+{
+  "name": "P4-Website-Optimization",
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/didaKtik/frontend-nanodegree-mobile-portfolio.git"
+  },
+  "devDependencies": {
+    "bower": "^1.4.1",
+    "grunt": "^0.4.5",
+    "grunt-contrib-cssmin": "^0.12.3",
+    "grunt-contrib-imagemin": "^1.0.0",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-contrib-nodeunit": "~0.4.1",
+    "grunt-webp": "0.0.4",
+    "imagemin-webp": "^3.1.0"
+  }
+}

@@ -7,6 +7,16 @@
 		* From 2048px to 120px and copied to /img/
 		* Size: from 2370 kB to 18kB
 		* Mobile speed: 28/100 -> 76/100
+	* pizzeria.jpg and profilepic.jpg as .webp images
+		* Mobile speed: 76/100 -> 75/100
+	* Compress images in img
+		* 75/100 -> 77/100
+	* Asynchronous google analytics
+		* 77/100 -> 77/100
+	* Minify css and add media="print" to print.css
+		* 77/100 -> 77/100
+	* Remove google font query
+		* 77/100 -> 84/100
 
 ### pizza.html
 
