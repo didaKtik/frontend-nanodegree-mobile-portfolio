@@ -1,6 +1,6 @@
 ## Optimizations made
 
-### index.html
+### Critical rendering path of index.html
 
 * pizzeria.jpg
 	* From 2048px to 120px and copied to /img/
@@ -19,7 +19,18 @@
 * Minify html, inline css:
 	* 84/100 -> 94/100
 
-### pizza.html
+### Timeline of pizza.html
+
+* Improvements to resizePizzas():
+	* Avoid layout trashing when resizing pizzas
+	* Time to resize pizzas: 173 ms -> 1.5 ms
+* Improvements to updatePositions():
+	* Number of background pizzas generated depends on window size (much less than 200)
+	* Phases calculated only once per updatePositions
+	* Pizzas are moved with transform instead of left
+	* Average time for 10 frames: 30 ms -> 0.3 ms
+
+See comments in views/js/main.js
 
 ## Website Performance Optimization portfolio project
 

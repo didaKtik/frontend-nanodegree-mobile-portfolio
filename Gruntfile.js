@@ -48,12 +48,11 @@ module.exports = function(grunt) {
         files: [{
           expand: true,
           cwd: 'img/',
-          src: ['**/*.{png,jpg,webp}'],
-          dest: 'img/'
+          src: ['*.{png,jpg,webp}'],
+          dest: 'img-dest/'
         }]
       }
     }
-
   });
 
 grunt.loadNpmTasks('grunt-contrib-htmlmin');
