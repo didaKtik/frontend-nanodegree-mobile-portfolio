@@ -437,7 +437,7 @@ var resizePizzas = function(size) {
     // No more calculations involving layout at this stage
 
     // All style changes together
-    for (var i = 0; i < pizzas.length; i++) {
+    for (var i = 0, len = pizzas.length; i < len; i++) {
       pizzas[i].style.width = sizePercentage + '%';
     }
   }
@@ -458,8 +458,8 @@ var resizePizzas = function(size) {
 
 // PIZZA GENERATION
 window.performance.mark("mark_start_generating");
+var pizzasDiv = document.getElementById("randomPizzas");
 for (var i = 2; i < 100; i++) {
-  var pizzasDiv = document.getElementById("randomPizzas");
   pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
 window.performance.mark("mark_end_generating");
@@ -492,12 +492,13 @@ function updatePositions() {
     return Math.sin(scrollTop / 1250 + remainder);
   });
 
-  for (var i = 0; i < backgroundPizzas.length; i++) {
+  var phase, translation;
+  for (var i = 0, len = backgroundPizzas.length; i < len; i++) {
     // Phase is pulled out of the phases array instead of being recalculated
-    var phase = phases[i % 5];
+    phase = phases[i % 5];
     // transform is used instead of left which triggers only "composite"
     //   and not "layout" and "paint"
-    var translation = 100 * phase + 'px';
+    translation = 100 * phase + 'px';
     backgroundPizzas[i].style.transform = "translateX(" + translation + ")";
   }
 
@@ -532,9 +533,11 @@ document.addEventListener('DOMContentLoaded', function() {
   var cols = Math.ceil(windowWidth / s) + 2;
 
   // On a usual screen around 40 pizzas instead of 200 are needed
+  var elem,
+    movingPizzas = document.getElementById('movingPizzas1');
   for (var r = 0; r < rows; r++) {
     for (var c = 0; c < cols; c++) {
-      var elem = document.createElement('img');
+      elem = document.createElement('img');
       elem.className = 'mover';
       elem.src = "img/pizza.png";
       elem.style.height = "100px";
@@ -543,7 +546,7 @@ document.addEventListener('DOMContentLoaded', function() {
       // Left style is set once for all
       elem.style.left = elem.basicLeft + 'px';
       elem.style.top = (r * s) + 'px';
-      document.querySelector("#movingPizzas1").appendChild(elem);
+      movingPizzas.appendChild(elem);
     }
   }
   updatePositions();
